@@ -1,0 +1,95 @@
+/* English name treatments: reserve Malayalam for message moments only. */
+.intro-copy h1 span {
+  font-family: inherit;
+  font-size: .52em;
+  letter-spacing: -.06em;
+  margin: .35rem 0 0 12%;
+}
+.diagonal-word,
+.reveal h2 {
+  font-family: "Playfair Display", serif;
+  font-style: italic;
+}
+
+.opening .hero-kicker {
+  color: #f4c958;
+  font: italic 700 clamp(1.55rem, 3.4vw, 3rem) "Playfair Display", serif;
+  letter-spacing: -.055em;
+  opacity: 1;
+  text-transform: none;
+}
+
+.booth-copy .booth-message {
+  font-family: Chilanka, sans-serif;
+  font-size: clamp(1.2rem, 2.2vw, 1.65rem);
+  line-height: 1.7;
+  max-width: 31rem;
+  color: #fff6e8;
+}
+
+@media (max-width: 680px) {
+  .booth-copy .booth-message {
+    font-size: 1.38rem;
+    line-height: 1.8;
+    max-width: none;
+    margin: 1.25rem 0 0;
+  }
+}
+
+/* Keep each supplied image in a frame close to its natural composition. */
+.photo img,
+.booth-frame img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.photo.portrait-duo { aspect-ratio: 9 / 16; }
+.photo.portrait-duo img { object-position: 50% 42%; }
+
+.first-photo,
+.end-photo { width: min(27vw, 340px); }
+
+.photo.wide-group { aspect-ratio: 2 / 1; }
+.years-photo.wide-group { width: min(42vw, 560px); right: 5%; bottom: 10%; }
+.scatter.wide-group { width: clamp(210px, 28vw, 390px); }
+
+/* This portrait previously had no size rule and could render at its full natural height. */
+.fun-photo { width: clamp(170px, 21vw, 260px); aspect-ratio: 9 / 16; margin-top: clamp(1rem, 3vh, 2rem); transform: rotate(4deg); }
+
+@media (max-width: 780px) {
+  .panel { padding: clamp(1.25rem, 6vw, 2rem); }
+  .first-photo, .end-photo { width: min(58vw, 280px); }
+  .years { min-height: 100svh; justify-content: flex-start; padding-top: 16svh; }
+  .years-big { font-size: clamp(7rem, 31vw, 12rem); }
+  .years-photo.wide-group { width: min(82vw, 470px); right: -12vw; bottom: 7svh; }
+  .photo-scatter { height: 105svh; }
+  .scatter { width: min(42vw, 230px); }
+  .scatter.wide-group { width: min(56vw, 310px); }
+  .s0 { top: 5%; left: 1%; }
+  .s1 { top: 29%; left: 45%; }
+  .s2 { top: 52%; right: 2%; }
+  .s3 { left: 7%; bottom: 7%; }
+  .caption { bottom: 1%; left: 4%; max-width: 82%; }
+  .booth { padding-top: 10svh; }
+  .booth-strip { width: min(64vw, 280px); }
+  .diagonal-stage { height: 58svh; }
+  .diagonal .photo { width: 34vw; left: calc(5% + var(--d, 0px)); }
+  .d1 { --d: 27vw; }
+  .d2 { --d: 54vw; }
+  .fun { min-height: 100svh; padding-block: 5rem 2rem; }
+  .fun-photo { width: min(52vw, 250px); }
+}
+
+@media (max-width: 420px) {
+  .intro-copy h1 { font-size: clamp(4rem, 20vw, 5.4rem); }
+  .first h2, .journey h2, .booth h2, .fun h2, .ending h2 { font-size: clamp(2.65rem, 14vw, 3.6rem); }
+  .booth-strip { width: min(72vw, 260px); }
+  .diagonal-stage { height: 52svh; }
+  .diagonal .photo { width: 36vw; }
+  .d1 { --d: 26vw; }
+  .d2 { --d: 52vw; }
+  .funline { max-width: 20rem; }
+}

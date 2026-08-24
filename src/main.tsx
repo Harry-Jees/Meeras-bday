@@ -52,7 +52,7 @@ function App() {
   }, []);
 
   return <main ref={root}>
-    <section className="opening panel"><div className="grain"/><div className="orb a"/><div className="orb b"/><div className="intro-copy"><p className="eyebrow hero-kicker">Ediyeeee</p><h1>Happy B’Day<br/><span>Meechu!!!</span></h1><p className="quiet">to my dear sweet seventeen</p><p className="from">made with an unreasonable amount of love, <b>Harry</b></p></div><div className="scroll-mark">↓</div></section>
+    <section className="opening panel"><div className="grain"/><div className="orb a"/><div className="orb b"/><div className="intro-copy"><p className="eyebrow hero-kicker">Ediyeeee</p><h1>Happy B’Day<br/><span>Meechu!!!</span></h1><p className="quiet">to my dear sweet-seventeen sister</p><p className="from">made with an unreasonable amount of love, <b>Harry</b></p></div><div className="scroll-mark">↓</div></section>
     <section className="first panel"><div><h2>Some people<br/>become a whole<br/><em>place.</em></h2></div><Photo memory={memories[0]} className="first-photo" /></section>
     <section className="years panel"><p className="eyebrow">one friendship, approximately</p><div className="years-big">4 <span>years</span></div><p className="malayalam">ഇനിയും ഒരായിരം കഥകൾ കൂടെ എഴുതണം. ❤️</p><Photo memory={memories[1]} className="years-photo" /></section>
     <section className="journey panel"><div className="journey-head"><p className="eyebrow">the evidence</p><h2>Small frames.<br/>Very big <em>thing.</em></h2></div><div className="photo-scatter">{memories.slice(2, 6).map((m, i) => <Photo memory={m} key={m.label} className={`scatter s${i}`} />)}</div><p className="caption">To my true ബ്രാന്തി friend.</p></section>

@@ -19,6 +19,8 @@
   text-transform: none;
 }
 
+.opening .from { font-size: clamp(.82rem, 1.35vw, 1rem); }
+
 .booth-copy .booth-message {
   font-family: Chilanka, sans-serif;
   font-size: clamp(1.2rem, 2.2vw, 1.65rem);
@@ -245,4 +247,18 @@
   .d1 { --d: 26vw; }
   .d2 { --d: 52vw; }
   .funline { max-width: 20rem; }
+}
+
+@media (max-width: 680px) {
+  .years {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto auto;
+    grid-template-areas: "eyebrow" "number" "message" "photo";
+    row-gap: .8rem;
+    align-content: start;
+  }
+  .years > .years-photo {
+    width: min(88vw, 460px);
+    margin-top: 1rem;
+  }
 }

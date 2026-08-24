@@ -56,15 +56,125 @@
 .years-photo.wide-group { width: min(42vw, 560px); right: 5%; bottom: 10%; }
 .scatter.wide-group { width: clamp(210px, 28vw, 390px); }
 
+/* Foggy reading blob behind the years message. */
+.years::before {
+  content: '';
+  position: absolute;
+  z-index: 0;
+  width: min(78vw, 920px);
+  height: min(58vw, 620px);
+  border-radius: 48% 52% 58% 42% / 42% 45% 55% 58%;
+  background: radial-gradient(ellipse at center, rgba(255, 249, 239, .48) 0%, rgba(255, 249, 239, .22) 45%, rgba(255, 249, 239, 0) 76%);
+  filter: blur(24px);
+  pointer-events: none;
+}
+
+.years > :not(.years-photo) { position: relative; z-index: 1; }
+.years .years-photo { z-index: 2; }
+
+/* Keep the years message and its photo side by side instead of overlapping. */
+.years {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(260px, .85fr);
+  grid-template-rows: auto auto auto;
+  grid-template-areas: "eyebrow photo" "number photo" "message photo";
+  column-gap: clamp(2rem, 7vw, 8rem);
+  justify-content: center;
+  align-content: center;
+}
+
+.years > .eyebrow { grid-area: eyebrow; }
+.years > .years-big { grid-area: number; }
+.years > .malayalam { grid-area: message; max-width: 32rem; }
+.years > .years-photo {
+  grid-area: photo;
+  position: relative;
+  inset: auto;
+  width: 100%;
+  max-width: 560px;
+  aspect-ratio: 2 / 1;
+  justify-self: center;
+}
+.years-photo img { object-fit: contain; }
+
+/* A vertical five-frame booth must be compact enough to remain in view. */
+.booth-strip {
+  width: clamp(52px, 5vw, 64px);
+  min-width: 0;
+  padding: .35rem;
+  gap: .3rem;
+  transform: perspective(700px) rotateY(-12deg) rotateZ(3deg);
+}
+
+.booth-frame { font-size: .42rem; }
+.booth-frame img { object-fit: contain; background: #d8c9bb; }
+
 /* This portrait previously had no size rule and could render at its full natural height. */
 .fun-photo { width: clamp(170px, 21vw, 260px); aspect-ratio: 9 / 16; margin-top: clamp(1rem, 3vh, 2rem); transform: rotate(4deg); }
+
+/* Birthday notice: image on the left, message on the right. */
+.fun {
+  display: grid;
+  grid-template-columns: minmax(170px, .8fr) minmax(0, 1.2fr);
+  grid-template-rows: auto auto auto;
+  grid-template-areas: "photo eyebrow" "photo title" "photo line";
+  column-gap: clamp(1.5rem, 5vw, 6rem);
+  justify-content: center;
+  align-content: center;
+  text-align: left;
+}
+
+.fun > .eyebrow { grid-area: eyebrow; align-self: end; }
+.fun > h2 { grid-area: title; }
+.fun > .funline { grid-area: line; margin-top: .5rem; }
+.fun > .fun-photo { grid-area: photo; justify-self: center; align-self: center; margin: 0; }
+.fun h2 { font-family: Chilanka, sans-serif; }
+.fun .float { z-index: 0; pointer-events: none; }
+.fun > :not(.float) { position: relative; z-index: 1; }
+.cake-section > .eyebrow {
+  font-size: clamp(1.15rem, 2.6vw, 2rem);
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-transform: none;
+}
+.cake-malayalam { font-family: Chilanka, sans-serif; }
+
+/* Keep the cake feeling alive after its entrance animation completes. */
+.cake-body,
+.icing { animation: cake-celebrate 2.4s ease-in-out infinite; }
+
+.flames i { animation: flame-flicker .75s ease-in-out infinite alternate; transform-origin: bottom center; }
+.flames i:nth-child(2n) { animation-delay: -.35s; }
+.flames i:nth-child(3n) { animation-delay: -.6s; }
+.candle { animation: candle-sway 1.8s ease-in-out infinite alternate; transform-origin: bottom center; }
+.candle:nth-child(2n) { animation-delay: -.7s; }
+
+@keyframes cake-celebrate {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-7px); }
+}
+
+@keyframes flame-flicker {
+  from { transform: rotate(45deg) scale(.78, 1.12); opacity: .78; }
+  to { transform: rotate(45deg) scale(1.14, .84); opacity: 1; }
+}
+
+@keyframes candle-sway {
+  from { transform: rotate(-1.5deg); }
+  to { transform: rotate(1.5deg); }
+}
 
 @media (max-width: 780px) {
   .panel { padding: clamp(1.25rem, 6vw, 2rem); }
   .first-photo, .end-photo { width: min(58vw, 280px); }
-  .years { min-height: 100svh; justify-content: flex-start; padding-top: 16svh; }
-  .years-big { font-size: clamp(7rem, 31vw, 12rem); }
-  .years-photo.wide-group { width: min(82vw, 470px); right: -12vw; bottom: 7svh; }
+  .years {
+    min-height: 100svh;
+    padding-top: 10svh;
+    grid-template-columns: minmax(0, 1.18fr) minmax(110px, .82fr);
+    column-gap: 1rem;
+  }
+  .years-big { font-size: clamp(6rem, 27vw, 10rem); }
+  .years-photo.wide-group { width: 100%; right: auto; bottom: auto; }
   .photo-scatter { height: 105svh; }
   .scatter { width: min(42vw, 230px); }
   .scatter.wide-group { width: min(56vw, 310px); }
@@ -74,19 +184,19 @@
   .s3 { left: 7%; bottom: 7%; }
   .caption { bottom: 1%; left: 4%; max-width: 82%; }
   .booth { padding-top: 10svh; }
-  .booth-strip { width: min(64vw, 280px); }
+  .booth-strip { width: min(16vw, 64px); }
   .diagonal-stage { height: 58svh; }
   .diagonal .photo { width: 34vw; left: calc(5% + var(--d, 0px)); }
   .d1 { --d: 27vw; }
   .d2 { --d: 54vw; }
-  .fun { min-height: 100svh; padding-block: 5rem 2rem; }
-  .fun-photo { width: min(52vw, 250px); }
+  .fun { min-height: 100svh; padding-block: 5rem 2rem; grid-template-columns: minmax(108px, .8fr) minmax(0, 1.2fr); column-gap: 1.15rem; }
+  .fun-photo { width: min(32vw, 160px); }
 }
 
 @media (max-width: 420px) {
   .intro-copy h1 { font-size: clamp(4rem, 20vw, 5.4rem); }
   .first h2, .journey h2, .booth h2, .fun h2, .ending h2 { font-size: clamp(2.65rem, 14vw, 3.6rem); }
-  .booth-strip { width: min(72vw, 260px); }
+  .booth-strip { width: min(16vw, 64px); }
   .diagonal-stage { height: 52svh; }
   .diagonal .photo { width: 36vw; }
   .d1 { --d: 26vw; }

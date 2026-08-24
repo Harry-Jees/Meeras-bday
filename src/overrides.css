@@ -139,6 +139,49 @@
 }
 .cake-malayalam { font-family: Chilanka, sans-serif; }
 
+.paper-note {
+  position: relative;
+  width: min(100%, 1000px);
+  margin: 1.4rem auto;
+  padding: clamp(2rem, 4vw, 3.5rem) clamp(1.2rem, 4vw, 3rem);
+  color: #3a3028;
+  background:
+    radial-gradient(ellipse at 15% 18%, #ffffffaa 0 7%, transparent 28%),
+    radial-gradient(ellipse at 78% 72%, #b9a88d26 0 9%, transparent 30%),
+    repeating-linear-gradient(112deg, #f4efe4 0 18px, #e9e1d3 19px 21px, #f1eadf 22px 44px),
+    linear-gradient(135deg, #faf7ef, #eee6d8 52%, #f5efe5);
+  border: 1px solid #c8bba7;
+  border-radius: 3px;
+  box-shadow: 0 22px 50px #3b251c2b, inset 0 0 35px #8d75552b;
+  transform: rotate(-1.2deg);
+  overflow: hidden;
+  clip-path: polygon(0 1%, 3% 0, 6% 1%, 10% .2%, 15% 1.2%, 20% 0, 26% 1%, 32% .2%, 38% 1.1%, 44% 0, 50% 1%, 56% .2%, 62% 1.1%, 68% 0, 74% 1%, 80% .2%, 86% 1.1%, 92% 0, 97% 1%, 100% 0, 99% 7%, 100% 14%, 99% 21%, 100% 29%, 99% 36%, 100% 44%, 99% 52%, 100% 60%, 99% 68%, 100% 76%, 99% 84%, 100% 92%, 98% 100%, 93% 99%, 88% 100%, 82% 98.8%, 76% 100%, 70% 99%, 64% 100%, 58% 98.8%, 52% 100%, 46% 99%, 40% 100%, 34% 98.8%, 28% 100%, 22% 99%, 16% 100%, 10% 99%, 4% 100%, 0 98%, 1% 90%, 0 82%, 1% 74%, 0 66%, 1% 58%, 0 50%, 1% 42%, 0 34%, 1% 26%, 0 18%, 1% 10%);
+}
+
+.message blockquote.message-copy {
+  width: min(100%, 1000px);
+  max-height: none;
+  overflow: visible;
+  margin: 0;
+  padding: 0;
+  font: 400 clamp(1.05rem, 1.35vw, 1.35rem) / 1.52 Chilanka, "Playfair Display", serif;
+  text-align: left;
+  scrollbar-width: thin;
+}
+
+.message-copy strong { color: #a64d6d; }
+
+@media (max-width: 680px) {
+  .message blockquote.message-copy {
+    max-height: none;
+    padding: 0;
+    font-size: 1rem;
+    line-height: 1.42;
+  }
+
+  .paper-note { padding: 1.5rem 1rem; }
+}
+
 /* Keep the cake feeling alive after its entrance animation completes. */
 .cake-body,
 .icing { animation: cake-celebrate 2.4s ease-in-out infinite; }

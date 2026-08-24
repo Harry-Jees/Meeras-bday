@@ -6,7 +6,7 @@ export const memories: Memory[] = [
   { label: 'Harry & Meera', src: '/images/harry-meera.jpg', tone: 'peach', crop: 'portrait-duo' },
   { label: 'friends at the mall', src: '/images/mall-group.jpg', tone: 'violet', crop: 'wide-group' },
   { label: 'friends together', src: '/images/friends-group.jpg', tone: 'gold', crop: 'wide-group' },
-  { label: 'fun call moment', src: '/images/photo-booth-fun.jpg', tone: 'rose', crop: 'fun-screenshot' },
+  { label: 'fun call moment', src: '/images/booth-mall-selfie.jpg', tone: 'rose', crop: 'fun-screenshot' },
   { label: 'school-day selfie', src: '/images/booth-school-selfie.jpg', tone: 'blue', crop: 'portrait-duo' },
   { label: 'mall-day selfie', src: '/images/booth-mall-selfie.jpg', tone: 'lime', crop: 'portrait-duo' },
   { label: 'evening together', src: '/images/booth-evening-duo.jpg', tone: 'peach', crop: 'portrait-duo' },
@@ -18,7 +18,7 @@ export const photoBooth = {
     { label: 'mall group', src: '/images/mall-group.jpg' },
     { label: 'Harry and Meera', src: '/images/harry-meera.jpg' },
     { label: 'friends together', src: '/images/friends-group.jpg' },
-    { label: 'fun call moment', src: '/images/photo-booth-fun.jpg' },
+    { label: 'fun call moment', src: '/images/booth-mall-selfie.jpg' },
     { label: 'your next memory' },
   ],
 } as { photos: Array<{ label: string; src?: string }> };
